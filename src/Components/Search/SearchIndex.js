@@ -15,7 +15,6 @@ inputHandler(e){
     this.setState({
       searchTerm: e.target.value
     })
-    console.log(this.state.searchTerm)
   }
   searchFunction = (e) => {
     e.preventDefault();
@@ -23,7 +22,6 @@ inputHandler(e){
       things : [...this.state.things],
       results : this.state.things.filter((item) => item === this.state.searchTerm) 
     })
-    console.log(this.state.results)
   }
 
   
@@ -34,7 +32,7 @@ inputHandler(e){
                 <Input
                     type="text"
                     id="search"
-                    placeholder="Search Here"
+                    placeholder="Search + Enter"
                     onChange={(e) => this.inputHandler(e)}
                     value={this.state.searchTerm}
                 />
