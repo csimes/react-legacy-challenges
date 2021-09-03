@@ -1,21 +1,53 @@
-import React from 'react';
-import {Input} from 'reactstrap';
- 
-const SearchIndex extends Component() {
-   this.state = {
-     things: ['pen', 'marker', 'eraser', 'notebook', 'pencil', 'scissors', 'highlighter', 'stapler', 'paper clip', 'binder', 'hole punch', 'laminator', 'laminating sheets', 'protective sheets', 'index cards']
-   }
- }
+import React, { Component } from 'react';
+import { Input, Form } from 'reactstrap';
 
- function searchFunction() {
- }
+class SearchIndex extends Component {
+  
+  constructor(){
+    super()
+      this.state = {
+        things: ['pen', 'marker', 'eraser', 'notebook', 'pencil', 'scissors', 'highlighter', 'stapler', 'paper clip', 'binder', 'hole punch', 'laminator', 'laminating sheets', 'protective sheets', 'index cards'] ,
+        searchTerm: "",
+        results: ""
+      }
+  }
+inputHandler(e){
+    this.setState({
+      searchTerm: e.target.value
+    })
+    console.log(this.state.searchTerm)
+  }
+  searchFunction = (e) => {
+    e.preventDefault();
+    this.setState({ 
+      things : [...this.state.things],
+      results : this.state.things.filter((item) => item === this.state.searchTerm) 
+    })
+    console.log(this.state.results)
+  }
 
- render() {
-     <div>
-       <Input placeholder='Search Here' />
-       <h3>Results:</h3>
-     </div>
- }
+  
+  render() {
+    return (
+        <div>
+            <Form onSubmit={this.searchFunction}>
+                <Input
+                    type="text"
+                    id="search"
+                    placeholder="Search Here"
+                    onChange={(e) => this.inputHandler(e)}
+                    value={this.state.searchTerm}
+                />
+            </Form>
+            {this.state.searchTerm !== "" && this.state.results !== "" ? 
+                <h3> Results: {this.state.results}</h3>
+            : 
+                this.state.things.map((thing) => <li>{thing}</li>
+            )}
+        </div>
+    );
+  }
+}
 
- 
-export SearchIndex;
+export default SearchIndex;
+
