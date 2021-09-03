@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Button, ListGroup, ListGroupItem } from "reactstrap"
+import { Button, Input, ListGroup, ListGroupItem } from "reactstrap"
 
 class ToDoList extends Component {
   constructor(){
@@ -20,6 +20,13 @@ class ToDoList extends Component {
       taskList : [...this.state.taskList, this.state.task]
     })
   }
+  
+  removeTask = (task) => {
+    this.taskList.splice(task, 1)
+    this.setState({taskList: [...this.state.taskList]})
+  
+
+  }
 
   render() { 
     return (
@@ -38,12 +45,19 @@ class ToDoList extends Component {
             >
                 Add Task
             </Button>
-            <ListGroup>
                 {this.state.taskList.map((task) => (
-                    <ListGroupItem>{task}</ListGroupItem>
-                ))}
-            </ListGroup>
-        </div>
+                  <ListGroup>
+                    <ListGroupItem style={{margin: "auto 5px"}} key={task}>{task}
+                    <Button color="danger" style={{margin: "auto"}} 
+                    onClick={(task) => this.removeTask(task)}>
+                      Complete - Click to Remove Task
+                    </Button>
+                    </ListGroupItem>
+                  </ListGroup>
+                ))
+                }
+            </div>
+
     );
   }
 }
