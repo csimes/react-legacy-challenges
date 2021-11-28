@@ -3,7 +3,7 @@
 ### Objectives
 
 
-There were four challenges in this project which focused on different portions of React Legacy code and applying logic, escalating in difficulty.
+There were four challenges in this project which focused on different portions of React Legacy code and logic application, escalating in difficulty.
 
  - The Cats Challenge was a debug challenge,
  - The Search Challenge included some debugging but focused primarily on writing logic,
