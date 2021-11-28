@@ -1,9 +1,7 @@
-##React Legacy Challenges
+## React Legacy Challenges
 
-******************************
+### Objectives
 
-OBJECTIVES
-------------
 
 There were four challenges in this project: Cats Challenge, Search Challenge, Dogs Challenge, and ToDo Challenge. These challenges focused on different portions of both React Legacy code and applying logic, escalating in difficulty.
 
