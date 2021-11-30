@@ -1,21 +1,11 @@
-React Legacy Challenges
+## React Legacy Challenges
 
-Clone project
+### Objectives
 
-Run npm install
 
-npm start
+There were four challenges in this project which focused on different portions of React Legacy code and logic application, escalating in difficulty.
 
-******************************
-
-INSTRUCTIONS
-------------
-
-There are four challenges in this project: Cats Challenge, Search Challenge, Dogs Challenge, and ToDo Challenge. These challenge will focus on different portions of both React Legacy code and applying logic and escalate in difficulty.
-
- - The Cats Challenge is a debug challenge,
- - The Search Challenge includes some debugging but focuses primarily on writing logic,
- - The Dogs Challenge focuses on fetching and displaying data in React,
- - The ToDo Challenge is an opportunity to apply everything you have seen up until this point throughout your experience at Eleven Fifty Academy
-
-Good luck!
+ - The Cats Challenge was a debug challenge,
+ - The Search Challenge included some debugging but focused primarily on writing logic,
+ - The Dogs Challenge focused on fetching and displaying data in React,
+ - The ToDo Challenge is an opportunity to apply everything learned to date by creating a simple to do list.
