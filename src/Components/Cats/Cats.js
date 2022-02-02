@@ -6,10 +6,10 @@ const Cats = () => {
   return (
     <Container className='App'>
       <br />
-      <p className='App-intro'>
+      <h1 className='App-intro'>
         To complete this challenge, complete and fix the existing code to have
         it do the following:
-      </p>
+      </h1>
 
       <hr />
 
