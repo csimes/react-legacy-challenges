@@ -5,7 +5,7 @@ class ToDoList extends Component {
   constructor() {
     super();
     this.state = {
-      taskList: [''],
+      taskList: [],
       task: '',
     };
   }
@@ -17,20 +17,21 @@ class ToDoList extends Component {
   addTask = (e) => {
     e.preventDefault();
     this.setState({
-      taskList: [...this.state.taskList, this.state.task],
+      // Add task to top of task list
+      taskList: [this.state.task, ...this.state.taskList],
+      // Clears input after task added
+      task: '',
     });
   };
 
-  removeTask = (task) => {
-    this.setState({ taskList: [...this.state.taskList].splice(task, 1) });
-  };
+  removeTask = () => {};
 
   render() {
     return (
       <div>
         <Input
           type='text'
-          placeholder='Enter Task'
+          placeholder='Add a task'
           onChange={(e) => this.inputHandler(e)}
           value={this.state.task}
         />
@@ -38,24 +39,28 @@ class ToDoList extends Component {
           outline
           color='success'
           style={{ display: 'block', margin: '5px auto' }}
-          onClick={this.addTask}
+          onClick={(e) => this.addTask(e)}
         >
           Add Task
         </Button>
-        {this.state.taskList.map((task) => (
-          <ListGroup>
-            <ListGroupItem style={{ margin: 'auto 5px' }} key={task}>
-              {task}
-              <Button
-                color='danger'
-                style={{ margin: 'auto' }}
-                onClick={this.removeTask}
-              >
-                Complete - Click to Remove Task
-              </Button>
-            </ListGroupItem>
-          </ListGroup>
-        ))}
+        {this.state.taskList.length < 1 ? (
+          <h1>No tasks yet. Add one!</h1>
+        ) : (
+          this.state.taskList.map((task, index) => (
+            <ListGroup>
+              <ListGroupItem style={{ margin: 'auto 5px' }} key={index}>
+                {task}
+                <Button
+                  color='danger'
+                  style={{ margin: 'auto' }}
+                  onClick={this.removeTask(task.index)}
+                >
+                  Complete - Click to Remove Task
+                </Button>
+              </ListGroupItem>
+            </ListGroup>
+          ))
+        )}
       </div>
     );
   }
