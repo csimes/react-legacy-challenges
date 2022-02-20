@@ -39,7 +39,7 @@ class SearchIndex extends Component {
       results: this.state.things.map((things) => {
         if (things.includes(this.state.searchTerm)) {
           return <li>{things}</li>;
-        }
+        } else return null;
       }),
     });
   };

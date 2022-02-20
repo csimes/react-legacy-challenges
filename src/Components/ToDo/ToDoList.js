@@ -53,7 +53,7 @@ class ToDoList extends Component {
                 <Button
                   color='danger'
                   style={{ margin: 'auto' }}
-                  onClick={this.removeTask(task.index)}
+                  onClick={this.removeTask}
                 >
                   Complete - Click to Remove Task
                 </Button>
