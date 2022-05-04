@@ -17,6 +17,11 @@ export default class ToDo extends Component {
     this.setState({ taskList: taskList });
   };
 
+  removeTask = (taskId) => {
+    taskList.splice(taskId, 1);
+    this.setState({ taskList: taskList });
+  };
+
   render() {
     return (
       <Container className='App'>
@@ -57,7 +62,7 @@ export default class ToDo extends Component {
         </ul>
         <hr />
         <AddToDo addToDo={this.addToDo} />
-        <ToDoList taskList={this.state.taskList} />
+        <ToDoList taskList={this.state.taskList} removeTask={this.removeTask} />
       </Container>
     );
   }
