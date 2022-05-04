@@ -57,7 +57,7 @@ export default class ToDo extends Component {
         </ul>
         <hr />
         <AddToDo addToDo={this.addToDo} />
-        <ToDoList />
+        <ToDoList taskList={this.state.taskList} />
       </Container>
     );
   }

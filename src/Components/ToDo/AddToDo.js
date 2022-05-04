@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button } from 'reactstrap';
 export default class AddToDo extends Component {
   constructor() {
     super();
@@ -23,22 +23,19 @@ export default class AddToDo extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           className='task-input'
-          type='text'
-          placeholder='Add a task'
+          placeholder='Enter to do item here'
           onChange={this.inputHandler}
           value={this.state.task}
-          autoFocus
+          autoFocus /* input field will focus on mount */
         />
-        <button
-          type='submit'
+        <Button
           className='task-btn'
           // disable button while task field is empty to prevent adding "blank" tasks
           disabled={this.state.task === '' ? true : false}
-          outline
           color='success'
         >
           Add Task
-        </button>
+        </Button>
       </form>
     );
   }

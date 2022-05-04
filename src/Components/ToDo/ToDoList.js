@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ListGroup, ListGroupItem } from 'reactstrap';
+import ToDoItem from './ToDoItem';
 export default class ToDoList extends Component {
   removeTask = (item) => {
     const removeItem = this.state.taskList.filter((i) => {
@@ -11,24 +13,17 @@ export default class ToDoList extends Component {
   render() {
     return (
       <div>
-        {/* {this.state.taskList.length < 1 ? (
+        {this.props.taskList.length < 1 ? (
           <h1>No tasks yet. Add one!</h1>
         ) : (
-          this.state.taskList.map((task, index) => (
-            <ListGroup key={index}>
-              <ListGroupItem>
-                {task}
-                <br />
-                <Button
-                  color='danger'
-                  onClick={(task) => this.removeTask(task.index)}
-                >
-                  Complete - Click to Remove Task
-                </Button>
-              </ListGroupItem>
-            </ListGroup>
-          ))
-        )} */}
+          <ListGroup>
+            <ListGroupItem>
+              {this.props.taskList.map((task, index) => (
+                <ToDoItem key={index} toDoItem={task} id={index} />
+              ))}
+            </ListGroupItem>
+          </ListGroup>
+        )}
       </div>
     );
   }
