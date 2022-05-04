@@ -11,16 +11,24 @@
   margin: auto;
 }
 
-.task-btn {
+.btn {
   margin: 0.5em auto;
 }
 
-.task-btn:disabled {
-  color: blue;
+button.task-btn:disabled {
+  background-color: gray;
+  border: none;
 }
 
 .list-group-item {
   margin: 0.75em auto;
-  width: 45em;
+  max-width: 40em;
+  /* prevents wrapping from breaking within a word */
   overflow-wrap: normal;
+}
+
+li.task-control-btn-group {
+  margin: auto;
+  /* border: 4px solid black; */
+  border-top-width: thin;
 }
