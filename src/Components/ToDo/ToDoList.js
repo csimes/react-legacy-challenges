@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-import ToDoItem from './ToDoItem';
+import React, { Component } from "react";
+import { ListGroup, ListGroupItem } from "reactstrap";
+import ToDoItem from "./ToDoItem";
 export default class ToDoList extends Component {
   render() {
     return (
@@ -16,6 +16,7 @@ export default class ToDoList extends Component {
                   toDoItem={task}
                   id={index}
                   removeTask={this.props.removeTask}
+                  editTask={this.props.editTask}
                 />
               ))}
             </ListGroupItem>
