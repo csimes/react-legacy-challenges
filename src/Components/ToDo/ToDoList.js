@@ -17,6 +17,7 @@ export default class ToDoList extends Component {
                   id={index}
                   removeTask={this.props.removeTask}
                   editTask={this.props.editTask}
+                  toggleTask={this.props.toggleTask}
                 />
               ))}
             </ListGroupItem>

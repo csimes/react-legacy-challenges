@@ -14,6 +14,9 @@ export default class ToDoItem extends Component {
     this.setState({ isEditing });
   };
 
+  toggleTask = () => {
+    this.props.toggleTask(this.props.id);
+  };
   removeTask = () => {
     this.props.removeTask(this.props.id);
   };
@@ -55,8 +58,21 @@ export default class ToDoItem extends Component {
           </>
         ) : (
           <>
-            <ListGroupItem>
-              {this.props.toDoItem.task}
+            <ListGroupItem onClick={this.toggleTask}>
+              <input
+                type="checkbox"
+                readOnly
+                checked={this.props.toDoItem.isCompleted}
+              />
+              <span
+                className={
+                  this.props.toDoItem.isCompleted
+                    ? "completed"
+                    : "not-completed"
+                }
+              >
+                {this.props.toDoItem.task}
+              </span>
               <br />
               <Button
                 color="warning"

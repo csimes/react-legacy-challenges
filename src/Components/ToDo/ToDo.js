@@ -17,6 +17,12 @@ export default class ToDo extends Component {
     this.setState({ taskList: taskList });
   };
 
+  toggleTask = (taskId) => {
+    const toDoItem = taskList[taskId];
+    toDoItem.isCompleted = !toDoItem.isCompleted;
+    this.setState({ taskList });
+  };
+
   removeTask = (taskId) => {
     taskList.splice(taskId, 1);
     this.setState({ taskList: taskList });
@@ -68,7 +74,12 @@ export default class ToDo extends Component {
         </ul>
         <hr />
         <AddToDo addToDo={this.addToDo} />
-        <ToDoList taskList={this.state.taskList} removeTask={this.removeTask} editTask={this.editTask} />
+        <ToDoList
+          taskList={this.state.taskList}
+          removeTask={this.removeTask}
+          editTask={this.editTask}
+          toggleTask={this.toggleTask}
+        />
       </Container>
     );
   }
