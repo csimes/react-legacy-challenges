@@ -3,7 +3,9 @@ import { Container } from "reactstrap";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
-const taskList = [];
+const taskList = localStorage.getItem("taskList")
+  ? JSON.parse(localStorage.getItem("taskList"))
+  : [];
 export default class ToDo extends Component {
   constructor() {
     super();
@@ -15,23 +17,27 @@ export default class ToDo extends Component {
   addToDo = (task) => {
     taskList.push({ task, isComplete: false });
     this.setState({ taskList: taskList });
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   toggleTask = (taskId) => {
     const toDoItem = taskList[taskId];
     toDoItem.isCompleted = !toDoItem.isCompleted;
     this.setState({ taskList });
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   removeTask = (taskId) => {
     taskList.splice(taskId, 1);
     this.setState({ taskList: taskList });
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   editTask = (taskId, task) => {
     const taskItem = taskList[taskId];
     taskItem.task = task;
     this.setState({ taskList });
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   render() {
